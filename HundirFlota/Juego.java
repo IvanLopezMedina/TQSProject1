@@ -6,7 +6,7 @@ public class Juego {
     {
         System.out.println("Hundir la flota");
         Tablero tab = new Tablero();
-        System.out.println(tab.MatrizSize());
+        //System.out.println(tab.MatrizSize());
     }
 
 
