@@ -6,6 +6,5 @@ public class Juego {
         System.out.println("Hundir la flota");
     }
     Tablero tab = new Tablero();
-    tab.MatrizSize();
 
 }

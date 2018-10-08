@@ -2,7 +2,7 @@ package HundirFlota;
 import java.util.*;
 
 public class Tablero {
-    int[][] Matriz;
+    public int[][] Matriz;
 
     public Tablero (){
         this.Matriz = new int[5][5];
@@ -12,10 +12,11 @@ public class Tablero {
             }
     }
 
-    public int MatrizSize(){
-        return this.Matriz.length;
+    Tablero tab = new Tablero();
+    System.out.println(tab.MatrizSize(this));
     }
 
-    Tablero tab = new Tablero();
-
+    private int MatrizSize(Tablero t) {
+        return t.Matriz.length;
+    }
 }
