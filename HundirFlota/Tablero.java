@@ -1,22 +1,23 @@
 package HundirFlota;
+import org.jetbrains.annotations.Contract;
+
 import java.util.*;
 
 public class Tablero {
-    public int[][] Matriz;
+    private int[][] Matriz;
 
-    public Tablero (){
+    public Tablero() {
         this.Matriz = new int[5][5];
-        for(int f=0;f<Matriz.length;f++) {
-            for(int c=0;c<Matriz[f].length;c++) {
-                Matriz[f][c]=0;
+        for (int f = 0; f < Matriz.length; f++) {
+            for (int c = 0; c < Matriz[f].length; c++) {
+                Matriz[f][c] = 0;
+                //System.out.println(Matriz[f][c]);
             }
+        }
     }
 
-    Tablero tab = new Tablero();
-    System.out.println(tab.MatrizSize(this));
-    }
-
-    private int MatrizSize(Tablero t) {
-        return t.Matriz.length;
+    public int MatrizSize() {
+        return this.Matriz.length;
     }
 }
+
