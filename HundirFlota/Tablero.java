@@ -16,7 +16,7 @@ public class Tablero {
         }
     }
 
-    public boolean MatrizSize(double size) {
+    public boolean MatrizLength(double size) {
         if (this.Matriz.length == size){
             return true;
         }else{
