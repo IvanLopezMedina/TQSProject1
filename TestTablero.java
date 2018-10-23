@@ -9,8 +9,7 @@ class TestTablero {
 	@Test
 	void test_initTablero() {
 		//Test inicialización valor vacio
-		assertEquals(m[0][0],0);
-
+		assertEquals(m[0][0],3);
 	}
 	
 	@Test
@@ -38,5 +37,124 @@ class TestTablero {
 		assertEquals(m[1][9],1);
 		
 	}
+	
+	@Test
+	void test_colocarBarcoVacioHorizontal() {
+		Barco b1 = new Barco("Submarino");
+		int x_inicial = 0;
+		int y_inicial = 0;
+		char orientacion = 'h';
+			
+		assertEquals(m[0][0], 3);
+		assertEquals(m[1][0], 3);
+		assertEquals(m[2][0], 3);
+		
+		
+		m.setBarco(b1,x_inicial, y_inicial,orientacion);
+		
+		assertEquals(m[0][0], 4);
+		assertEquals(m[1][0], 4);
+		assertEquals(m[2][0], 4);
+		assertEquals(m[3][0], 3);
+		
+	}
+
+	@Test
+	void test_colocarBarcoVacioVertical() {
+		Barco b1 = new Barco("Submarino");
+		int x_inicial = 0;
+		int y_inicial = 0;
+		char orientacion = 'v';
+			
+		assertEquals(m[0][0], 3);
+		assertEquals(m[0][1], 3);
+		assertEquals(m[0][2], 3);
+		
+		
+		m.setBarco(b1,x_inicial, y_inicial,orientacion);
+		
+		assertEquals(m[0][0], 4);
+		assertEquals(m[0][1], 4);
+		assertEquals(m[0][2], 4);
+		assertEquals(m[0][3], 3);
+		
+	}
+	
+	@Test
+	void test_colocarBarcoOcupadoHorizontal() {
+		
+		Barco b1 = new Barco("Submarino");
+		int x_inicial = 0;
+		int y_inicial = 0;
+		char orientacion = 'h';
+	
+		m.setBarco(b1,x_inicial, y_inicial,orientacion);
+		
+		Barco b2 = new Barco("Portaaviones");
+		x_inicial = 0;
+		y_inicial = 0;
+		orientacion = 'h';
+	
+		m.setBarco(b2,x_inicial, y_inicial,orientacion);	
+		
+		assertEquals(m[0][0], 4);
+		assertEquals(m[1][0], 4);
+		assertEquals(m[2][0], 4);
+		assertEquals(m[3][0], 3);
+		assertEquals(m[4][0], 3);
+		
+	}
+	
+	@Test
+	void test_colocarBarcoOcupadoVertical() {
+		
+		Barco b1 = new Barco("Submarino");
+		int x_inicial = 0;
+		int y_inicial = 0;
+		char orientacion = 'v';
+	
+		m.setBarco(b1,x_inicial, y_inicial,orientacion);
+		
+		Barco b2 = new Barco("Portaaviones");
+		x_inicial = 0;
+		y_inicial = 0;
+		orientacion = 'h';
+	
+		boolean status = m.setBarco(b2,x_inicial, y_inicial,orientacion);	
+		
+		assertEquals(m[0][0], 4);
+		assertEquals(m[0][1], 4);
+		assertEquals(m[0][2], 4);
+		assertEquals(m[0][3], 3);
+		assertEquals(m[0][4], 3);
+		
+		/**
+		 * Status devolverá si se ha colocado el barco o se ha omitido por errores
+		 */
+		assertFalse(status);
+		
+	}
+	
+	@Test
+	void test_colocarBarcoFueraHorizontal() {
+		Barco b1 = new Barco("Submarino");
+		int x_inicial = 6;
+		int y_inicial = 0;
+		char orientacion = 'h';
+	
+		boolean status = m.setBarco(b1,x_inicial, y_inicial,orientacion);
+		
+		assertFalse(status);
+		
+	}
+	
+	@Test
+	void test_colocarBarcoFueraVertical() {
+		
+		
+		
+	}
+	
+	
 
 }

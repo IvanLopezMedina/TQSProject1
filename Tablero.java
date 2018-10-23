@@ -7,7 +7,7 @@ public class Tablero {
     	this.matriz = new int[9][9];
         for (int f = 0; f < matriz.length; f++) {
             for (int c = 0; c < matriz[f].length; c++) {
-            	matriz[f][c] = 0;
+            	matriz[f][c] = 5;
             }
         }
     }
