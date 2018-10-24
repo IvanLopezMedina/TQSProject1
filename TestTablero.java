@@ -50,7 +50,7 @@ class TestTablero {
 		assertEquals(m[2][0], 3);
 		
 		
-		m.setBarco(b1,x_inicial, y_inicial,orientacion);
+		t.setBarco(b1,x_inicial, y_inicial,orientacion);
 		
 		assertEquals(m[0][0], 4);
 		assertEquals(m[1][0], 4);
@@ -71,7 +71,7 @@ class TestTablero {
 		assertEquals(m[0][2], 3);
 		
 		
-		m.setBarco(b1,x_inicial, y_inicial,orientacion);
+		t.setBarco(b1,x_inicial, y_inicial,orientacion);
 		
 		assertEquals(m[0][0], 4);
 		assertEquals(m[0][1], 4);
@@ -88,14 +88,14 @@ class TestTablero {
 		int y_inicial = 0;
 		char orientacion = 'h';
 	
-		m.setBarco(b1,x_inicial, y_inicial,orientacion);
+		t.setBarco(b1,x_inicial, y_inicial,orientacion);
 		
 		Barco b2 = new Barco("Portaaviones");
 		x_inicial = 0;
 		y_inicial = 0;
 		orientacion = 'h';
 	
-		m.setBarco(b2,x_inicial, y_inicial,orientacion);	
+		t.setBarco(b2,x_inicial, y_inicial,orientacion);	
 		
 		assertEquals(m[0][0], 4);
 		assertEquals(m[1][0], 4);
@@ -113,14 +113,14 @@ class TestTablero {
 		int y_inicial = 0;
 		char orientacion = 'v';
 	
-		m.setBarco(b1,x_inicial, y_inicial,orientacion);
+		t.setBarco(b1,x_inicial, y_inicial,orientacion);
 		
 		Barco b2 = new Barco("Portaaviones");
 		x_inicial = 0;
 		y_inicial = 0;
 		orientacion = 'h';
 	
-		boolean status = m.setBarco(b2,x_inicial, y_inicial,orientacion);	
+		boolean status = t.setBarco(b2,x_inicial, y_inicial,orientacion);	
 		
 		assertEquals(m[0][0], 4);
 		assertEquals(m[0][1], 4);
@@ -142,7 +142,7 @@ class TestTablero {
 		int y_inicial = 0;
 		char orientacion = 'h';
 	
-		boolean status = m.setBarco(b1,x_inicial, y_inicial,orientacion);
+		boolean status = t.setBarco(b1,x_inicial, y_inicial,orientacion);
 		
 		assertFalse(status);
 		
