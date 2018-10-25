@@ -1,17 +1,17 @@
 public class Barco {
 	String nombre;
-	int tamaño;
+	int tamano;
 	
 	public Barco(String nombre) {
 		this.nombre = nombre;
-		this.tamaño = 0;	
+		this.tamano = 3;	
 	}
 	
 	public String getNombre() {
 		return this.nombre;
 	}
 	
-	public int getTamaño() {
-		return this.tamaño;
+	public int getTamano() {
+		return this.tamano;
 	}
 }

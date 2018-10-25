@@ -15,10 +15,10 @@ class TestBarco {
 			String nombre = b1.getNombre();
 			
 			if (nombre.matches("Submarino")) {
-				assertEquals(b1.getTamaño(),3);
+				assertEquals(b1.getTamano(),3);
 			}
 			if (nombre.matches("Portaaviones")) {
-				assertEquals(b1.getTamaño(),5);
+				assertEquals(b1.getTamano(),5);
 			}		
 		}
 	}
