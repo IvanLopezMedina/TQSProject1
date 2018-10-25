@@ -31,18 +31,20 @@ public class Tablero {
     public boolean setBarco(Barco b, int x, int y, char orientacion) {
     	if (orientacion == 'h') {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
-    			while (x < x+b.getTamano()) {
+    			int x_init = x;
+    			while (x_init < x+b.getTamano()) {
     				matriz[x][y] = 4;
-    				x++;
+    				x_init++;
     			}
     		}else return false;
     	}
     	
     	if (orientacion == 'v') {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
-    			while (x < x+b.getTamano()) {
+    			int y_init = y;
+    			while (y_init < y+b.getTamano()) {
     				matriz[x][y] = 4;
-    				x++;
+    				y_init++;
     			}
     		} else return false;
     	}
@@ -52,23 +54,25 @@ public class Tablero {
     
     public boolean comprobarPosicionBarco(int tamano, int x, int y, int orientacion) {
     	if (orientacion == 'h') {
-	    	while (x < x+tamano) {
+    		int x_init = x;
+	    	while (x_init < x+tamano) {
 	    		if (matriz[x][y] == 4) {
 	    			System.out.println("Error insertando el barco. Posicion ocupada");
 	    			return false;
 	    		}
-	    		x++;
+	    		x_init++;
 			}
     	}
     	
     	if (orientacion == 'v') {
-	    	while (y < y+tamano) {
+    		int y_init = y;
+	    	while (y_init < y+tamano) {
 				
 	    		if (matriz[x][y] == 4) {
 	    			System.out.println("Error insertando el barco. Posicion ocupada");
 	    			return false;
 	    		}
-	    		y++;
+	    		y_init++;
 			}
     	}
     	

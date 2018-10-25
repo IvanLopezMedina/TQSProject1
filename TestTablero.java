@@ -8,7 +8,7 @@ class TestTablero {
 
 	@Test
 	void test_initTablero() {
-		//Test inicialización valor vacio
+		//Test inicializacion valor vacio
 		assertEquals(m[0][0],3);
 	}
 	
