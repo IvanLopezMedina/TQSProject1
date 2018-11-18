@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Tablero {
     private int[][] matriz;
+    boolean result;
     
     /**
      * Nomenclatura valores matriz
@@ -29,54 +30,65 @@ public class Tablero {
     }
     
     public boolean setBarco(Barco b, int x, int y, char orientacion) {
+    	result = true;
     	if (orientacion == 'h') {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
     			int x_init = x;
-    			while (x_init < x+b.getTamano()) {
+    			while (x < x_init+b.getTamano()) {
     				matriz[x][y] = 4;
-    				x_init++;
+    				x++;
     			}
-    		}else return false;
+    		}else result = false;
     	}
     	
     	if (orientacion == 'v') {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
     			int y_init = y;
-    			while (y_init < y+b.getTamano()) {
+    			while (y < y_init+b.getTamano()) {
     				matriz[x][y] = 4;
-    				y_init++;
+    				y++;
     			}
-    		} else return false;
+    		} else result = false;
     	}
-    	
-    	return true;
+    	return result;
     }
     
     public boolean comprobarPosicionBarco(int tamano, int x, int y, int orientacion) {
     	if (orientacion == 'h') {
     		int x_init = x;
-	    	while (x_init < x+tamano) {
-	    		if (matriz[x][y] == 4) {
-	    			System.out.println("Error insertando el barco. Posicion ocupada");
-	    			return false;
-	    		}
-	    		x_init++;
-			}
+    		
+    		if (x_init + tamano > 8) {
+    			return false;
+    		}else {
+    			while (x < x_init+tamano) {
+    	    		if (matriz[x][y] == 4) {
+    	    			System.out.println("Error insertando el barco. Posicion ocupada");
+    	    			result = false;
+    	    		}
+    	    		x++;
+    			}
+    		}
+	    	
     	}
     	
     	if (orientacion == 'v') {
+    		
     		int y_init = y;
-	    	while (y_init < y+tamano) {
-				
-	    		if (matriz[x][y] == 4) {
-	    			System.out.println("Error insertando el barco. Posicion ocupada");
-	    			return false;
-	    		}
-	    		y_init++;
-			}
+    		if (y_init + tamano > 8) {
+    			return false;
+    		}else {
+    			while (y < y_init+tamano) {
+    	    		if (matriz[x][y] == 4) {
+    	    			System.out.println("Error insertando el barco. Posicion ocupada");
+    	    			result = false;
+    	    		}
+    	    		y++;
+    			}
+    		}
+	    	
     	}
     	
-    	return true;   
+    	return result;   
     }
 }
 
