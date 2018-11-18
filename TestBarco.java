@@ -12,18 +12,14 @@ class TestBarco{
 
 	@Test
 	void test_InitBarco() {
-		Collection<String> listaNombres = new ArrayList<String>();
-		listaNombres.add("Submarino");
-		listaNombres.add("Portaaviones");
-		
-		for(String iter: listaNombres) {
-			Barco b1 = new Barco(iter);
-			if (b1.getNombre().matches("Submarino")) {
-				assertEquals(b1.getTamano(),3);
-			}
-			if (b1.getNombre().matches("Portaaviones")) {
-				assertEquals(b1.getTamano(),5);
-			}			
-		}
+        String[] listaNombres = {"Crucero" , "Portavion", "Acorazado"};
+		Barco crucero = new Crucero(listaNombres[0]);
+		Barco portavion = new Portavion(listaNombres[1]);
+		Barco acorazado = new Acorazado(listaNombres[2]);
+
+		assertEquals(crucero.getNombre(),"Crucero");
+        assertEquals(portavion.getNombre(),"Portavion");
+        assertEquals(acorazado.getNombre(),"Crucero");
+
 	}
 }
