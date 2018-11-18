@@ -4,7 +4,7 @@ public class Barco {
 	
 	public Barco(String nombre) {
 		this.nombre = nombre;
-		this.tamano = 3;	
+		setTamano();
 	}
 	
 	public String getNombre() {
@@ -13,5 +13,25 @@ public class Barco {
 	
 	public int getTamano() {
 		return this.tamano;
+	}
+	
+	private void setTamano() {
+		
+		
+		if (nombre == "Patrullero") {
+			tamano = 2;
+		}
+		
+		if (nombre == "Submarino") {
+			tamano = 3;
+		}
+		
+		if (nombre == "Acorazado") {
+			tamano = 4;
+		}
+		
+		if (nombre == "Portaaviones") {
+			tamano = 5;
+		}
 	}
 }

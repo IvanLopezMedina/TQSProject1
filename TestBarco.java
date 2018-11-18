@@ -1,5 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.junit.jupiter.api.Test;
 
 class TestBarco {
@@ -8,18 +11,18 @@ class TestBarco {
 
 	@Test
 	void test_InitBarco() {
-		String[] listanombres = {"Submarino" , "Portaaviones" };
+		Collection<String> listaNombres = new ArrayList<String>();
+		listaNombres.add("Submarino");
+		listaNombres.add("Portaaviones");
 		
-		for(int i = 0; i<listanombres.length; i++) {
-			Barco b1 = new Barco(listanombres[i]);
-			String nombre = b1.getNombre();
-			
-			if (nombre.matches("Submarino")) {
+		for(String iter: listaNombres) {
+			Barco b1 = new Barco(iter);
+			if (b1.getNombre().matches("Submarino")) {
 				assertEquals(b1.getTamano(),3);
 			}
-			if (nombre.matches("Portaaviones")) {
+			if (b1.getNombre().matches("Portaaviones")) {
 				assertEquals(b1.getTamano(),5);
-			}		
+			}			
 		}
 	}
 }
