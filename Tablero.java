@@ -18,7 +18,6 @@ public class Tablero {
             }
         }
     }
-
     
     public int[][] getMatriz(){
     	return this.matriz;
