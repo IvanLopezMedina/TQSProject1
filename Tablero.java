@@ -2,7 +2,9 @@ import java.util.*;
 
 public class Tablero {
     private int[][] matriz;
-    boolean result;
+    int MAX_FILA = 9;
+    int MAX_COLUMNA = 9;
+	boolean result;
     
     /**
      * Nomenclatura valores matriz
@@ -11,7 +13,7 @@ public class Tablero {
      * 
      */
     public Tablero() {
-    	this.matriz = new int[9][9];
+    	this.matriz = new int[MAX_FILA][MAX_COLUMNA];
         for (int f = 0; f < matriz.length; f++) {
             for (int c = 0; c < matriz[f].length; c++) {
             	matriz[f][c] = 3;
@@ -22,7 +24,10 @@ public class Tablero {
     public int[][] getMatriz(){
     	return this.matriz;
     }
-    
+
+    public static void imprimirTablero(Tablero t){
+
+	}
     
     public void setValorCasilla(int x, int y) {
     	matriz[x][y] = 1;

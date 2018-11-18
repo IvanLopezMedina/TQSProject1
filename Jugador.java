@@ -23,7 +23,14 @@ public class Jugador {
     }
 
     public int disparar(Tablero t, int x, int y){
-        return 0;
+        int ret = 0;
+        int matriz [][] = t.getMatriz();
+        if (matriz[x][y] == 4){
+            ret = 1;
+        }else{
+            ret = 0;
+        }
+        return ret;
     }
 
 }

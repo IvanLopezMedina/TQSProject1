@@ -40,10 +40,6 @@ class TestJugador{
         assertEquals(1,disparo);
         disparo = j1.disparar(t, 5,0);
         assertEquals(1,disparo);
-        
-
-
-
 
     }
 
