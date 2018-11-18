@@ -1,14 +1,18 @@
-public class Barco {
-	String nombre;
+public abstract class Barco {
+	protected String nombre;
 	int tamano;
 	
-	public Barco(String nombre) {
+	public void Barco(String nombre) {
 		this.nombre = nombre;
 		setTamano();
 	}
 	
 	public String getNombre() {
 		return this.nombre;
+	}
+
+	public void setNombre(String nombre){
+	    this.nombre = nombre;
 	}
 	
 	public int getTamano() {

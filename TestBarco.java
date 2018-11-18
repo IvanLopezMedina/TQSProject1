@@ -1,3 +1,4 @@
+import static junit.framework.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -5,7 +6,7 @@ import java.util.Collection;
 
 import org.junit.jupiter.api.Test;
 
-class TestBarco {
+class TestBarco{
 	Tablero t = new Tablero();
 	int[][] m = t.getMatriz();
 
