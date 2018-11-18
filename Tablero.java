@@ -25,8 +25,14 @@ public class Tablero {
     	return this.matriz;
     }
 
-    public static void imprimirTablero(Tablero t){
-
+    public void imprimirTablero(Tablero t){
+		int matriz [][] = t.getMatriz();
+		for(int i=0; i<matriz.length;i++){
+			for(int j=0; j<matriz.length; j++){
+				System.out.print(matriz[i][j] + "\t");
+			}
+			System.out.println("\n");
+		}
 	}
     
     public void setValorCasilla(int x, int y) {
@@ -35,7 +41,7 @@ public class Tablero {
     
     public boolean setBarco(Barco b, int x, int y, char orientacion) {
     	result = true;
-    	if (orientacion == 'h') {
+    	if (orientacion == 'v') {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
     			int x_init = x;
     			while (x < x_init+b.getTamano()) {
@@ -45,7 +51,7 @@ public class Tablero {
     		}else result = false;
     	}
     	
-    	if (orientacion == 'v') {
+    	if (orientacion == 'h') {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
     			int y_init = y;
     			while (y < y_init+b.getTamano()) {
