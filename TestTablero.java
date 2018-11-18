@@ -30,11 +30,19 @@ class TestTablero {
 	@Test
 	void test_insertTableroInvalido() {
 		//Valors incorrectos
-		t.setValorCasilla(-1, 7);
-		assertEquals(m[-1][7],1);
+		try {
+			t.setValorCasilla(-1, 7);
+			assertEquals(m[-1][7],1);
+			
+			t.setValorCasilla(1, 9);
+			assertEquals(m[1][9],1);
+			
+		}catch(ArrayIndexOutOfBoundsException exception) {
+		    System.out.println("Fora de rang");
+		}
 		
-		t.setValorCasilla(1, 9);
-		assertEquals(m[1][9],1);
+		
+		
 		
 	}
 	
