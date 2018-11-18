@@ -1,3 +1,4 @@
+import static junit.framework.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -40,7 +41,7 @@ class TestTablero {
 	
 	@Test
 	void test_colocarBarcoVacioHorizontal() {
-		Barco b1 = new Barco("Submarino");
+		Barco b1 = new Crucero("Submarino");
 		int x_inicial = 0;
 		int y_inicial = 0;
 		char orientacion = 'h';
@@ -61,11 +62,11 @@ class TestTablero {
 
 	@Test
 	void test_colocarBarcoVacioVertical() {
-		Barco b1 = new Barco("Submarino");
+		Barco b1 = new Crucero("Submarino");
 		int x_inicial = 0;
 		int y_inicial = 0;
 		char orientacion = 'v';
-			
+		
 		assertEquals(m[0][0], 3);
 		assertEquals(m[0][1], 3);
 		assertEquals(m[0][2], 3);
@@ -83,14 +84,14 @@ class TestTablero {
 	@Test
 	void test_colocarBarcoOcupadoHorizontal() {
 		
-		Barco b1 = new Barco("Submarino");
+		Barco b1 = new Crucero("Submarino");
 		int x_inicial = 0;
 		int y_inicial = 0;
 		char orientacion = 'h';
 	
 		t.setBarco(b1,x_inicial, y_inicial,orientacion);
 		
-		Barco b2 = new Barco("Portaaviones");
+		Barco b2 = new Portavion("Portaaviones");
 		x_inicial = 0;
 		y_inicial = 0;
 		orientacion = 'h';
@@ -108,14 +109,14 @@ class TestTablero {
 	@Test
 	void test_colocarBarcoOcupadoVertical() {
 		
-		Barco b1 = new Barco("Submarino");
+		Barco b1 = new Crucero("Submarino");
 		int x_inicial = 0;
 		int y_inicial = 0;
 		char orientacion = 'v';
 	
 		t.setBarco(b1,x_inicial, y_inicial,orientacion);
 		
-		Barco b2 = new Barco("Portaaviones");
+		Barco b2 = new Crucero("Portaaviones");
 		x_inicial = 0;
 		y_inicial = 0;
 		orientacion = 'h';
@@ -137,7 +138,7 @@ class TestTablero {
 	
 	@Test
 	void test_colocarBarcoFueraHorizontal() {
-		Barco b1 = new Barco("Submarino");
+		Barco b1 = new Crucero("Submarino");
 		int x_inicial = 6;
 		int y_inicial = 0;
 		char orientacion = 'h';

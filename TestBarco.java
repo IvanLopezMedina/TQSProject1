@@ -1,8 +1,9 @@
+import static junit.framework.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class TestBarco {
+class TestBarco{
 	Tablero t = new Tablero();
 	int[][] m = t.getMatriz();
 
@@ -11,7 +12,7 @@ class TestBarco {
 		String[] listanombres = {"Submarino" , "Portaaviones" };
 		
 		for(int i = 0; i<listanombres.length; i++) {
-			Barco b1 = new Barco(listanombres[i]);
+			Barco b1 = new Crucero(listanombres[i]);
 			String nombre = b1.getNombre();
 			
 			if (nombre.matches("Submarino")) {
