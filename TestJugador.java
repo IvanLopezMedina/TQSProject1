@@ -22,9 +22,7 @@ class TestJugador{
         
         //Mock Teclado
         Teclado tec = new MockTecladoDisparos();
-        j.setTeclado(tec);
-        int fila = 0, col = 0;
-        
+        j.setTeclado(tec);        
         
         //Creo patrullero en la casilla 0 0 y lo hundiré 0 0 y 0 1
     	Barco patrullero = new Barco("Patrullero");
@@ -93,7 +91,30 @@ class TestJugador{
     	Jugador j1 = new Jugador("Ivan");
         Tablero t = new Tablero();
         Juego j = new Juego();
+        Barco acorazado = new Barco("Acorazado");
+        t.setBarco(acorazado,0,0,'v');
+        /*Barco submarino = new Barco("Submarino");
+        t.setBarco(acorazado,1,1,'v');
+        Barco patrullero = new Barco("Patrullero");
+        t.setBarco(acorazado,2,2,'h');
+        Barco portaaviones = new Barco("Portaaviones");
+        t.setBarco(acorazado,3,3,'h');*/
+        
+        Teclado tec = new MockTecladoSimularPartida();
+        j.setTeclado(tec);  
+        int c = 0;
+        
+        while (c < 15) {
+        	System.out.println("fila" + tec.getFila() + " col" + tec.getColumna());
+        	j.entradaUsuario();
+        	j1.disparar(t, tec.getFila(), tec.getColumna());
+        	c++;
+        }
+        	
+        
+        
         t.imprimirTablero();
+        
         
     }
 
