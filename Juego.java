@@ -8,7 +8,7 @@ public class Juego {
         System.out.println("Hundir la flota");
         Tablero tab = new Tablero();
         Jugador j1 = new Jugador("Ivan");
-        Barco acorazado = new Acorazado("Acorazado");
+        Barco acorazado = new Barco("Acorazado");
         tab.setBarco(acorazado,0,0,'v');
         while(true) {
             Scanner sc = new Scanner(System.in);

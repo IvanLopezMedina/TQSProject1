@@ -1,16 +1,18 @@
 public class Barco {
 	protected String nombre;
-	int tamano;
+	protected int tamano;
 	int[] posicion = new int[2];
 	protected int vida;
-	int[] horizontal = new int[4];
-	int[] vertical = new int[4];
-	char orientacion;
+	protected int[] horizontal = new int[4];
+	protected int[] vertical = new int[4];
+	protected char orientacion;
 
     public Barco(String nombre) {
         this.nombre = nombre;
         setTamano();
         this.vida = getTamano();
+        this.horizontal =  new int[tamano];
+        this.vertical =  new int[tamano];
     }
 
     public void setOrientacion(char orientacion){
