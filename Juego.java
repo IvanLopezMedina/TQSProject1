@@ -27,16 +27,21 @@ public class Juego {
         tab.insertarBarcosAleatorios();
         //tab.setBarco(acorazado,0,0,'v');
         tab.imprimirTablero();
-        while(true) {
+        
+        int ganar = tab.getTotalBarcos();
+        while(ganar > 0) {
             Scanner sc = new Scanner(System.in);
             x = j1.pideFila(sc);
             y = j1.pideColumna(sc);
             System.out.println(j1.disparar(tab, x, y));
             //System.out.println(j1.disparoIA(tab));
             tab.imprimirTablero();
+            ganar = tab.getTotalBarcos();
         }
-        //System.out.println(tab.MatrizSize());
-
+        
+        if (ganar == 0) {
+        	System.out.println("Has ganado!!");
+        }
 
     }
 
