@@ -11,6 +11,10 @@ public class Juego {
 			tec.filaCol();
 	}
 	
+	public void terminarPartida() {
+		
+	}
+	
 	
     public static void main(String[] args){
         int x;
@@ -19,8 +23,9 @@ public class Juego {
         System.out.println("Hundir la flota");
         Tablero tab = new Tablero();
         Jugador j1 = new Jugador("Ivan");
-        Barco acorazado = new Barco("Acorazado");
-        tab.setBarco(acorazado,0,0,'v');
+        //Barco acorazado = new Barco("Acorazado");
+        tab.insertarBarcosAleatorios();
+        //tab.setBarco(acorazado,0,0,'v');
         tab.imprimirTablero();
         while(true) {
             Scanner sc = new Scanner(System.in);

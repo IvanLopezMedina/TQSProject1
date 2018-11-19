@@ -31,7 +31,7 @@ public class Jugador {
             if (t.getMatrizValor(x, y) == 4) {
                 barco.restVida(); //restamos la vida del barco
                 if(barco.getHundido()){
-                    System.out.println("BARCO HUNDIDO");
+                    System.out.println("BARCO HUNDIDO" + barco.getNombre());
                     
                     int init_x = barco.getPosicionBarco()[0];
                     int init_y = barco.getPosicionBarco()[1];
