@@ -30,7 +30,7 @@ class TestTablero {
 		
 		//Buscar elemento existente
 		Barco b1 = new Barco(nombre);
-		t.getBarcos().add(b1);
+		t.setBarcos(b1);
 		for (Barco iter: t.getBarcos()) {
 			if (iter.getNombre().matches(nombre)) {
 				assertTrue(true);
@@ -46,8 +46,6 @@ class TestTablero {
 				assertFalse(true);
 			}
 		}
-		
-
 	}
 	
 	@Test
@@ -78,10 +76,6 @@ class TestTablero {
 		}catch(ArrayIndexOutOfBoundsException exception) {
 		    System.out.println("Fora de rang");
 		}
-		
-		
-		
-		
 	}
 	
 	@Test
