@@ -7,10 +7,8 @@ public class Juego {
     	this.tec= t;
     }
 	
-	public void entradaUsuario(int fila, int col) {
-			tec.filaCol(fila, col);
-			System.out.println(tec.getFila());
-			System.out.println(tec.getColumna());
+	public void entradaUsuario() {
+			tec.filaCol();
 	}
 	
 	

@@ -30,18 +30,20 @@ class TestJugador{
     	Barco patrullero = new Barco("Patrullero");
     	t.setBarco(patrullero, 0,0, 'h');
     	
-    	j.entradaUsuario(fila, col);
-    	j1.disparar(t, fila, col);
-    	//La vida ahora debería ser 1
+ 
+    	//Pido entrada usuario, disparo en la 0, 0, está el patrullero y ha de darle y vida = 1
+    	j.entradaUsuario();
+    	j1.disparar(t, 0, 0);	
     	assertEquals(t.getBarco(0, 0).getVida(), 1);
     	
     	//Vuelvo a pedir entrada de usuario. Ahora debería fallar y dar agua y vida = 1
-    	j.entradaUsuario(fila, col);
-    	j1.disparar(t, fila, col);
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
     	assertEquals(t.getBarco(0, 0).getVida(), 1);
+    	
     	//Vuelvo a pedir entrada de usuario. Ahora debería acertar y hundir el barco
-    	j.entradaUsuario(fila, col);
-    	j1.disparar(t, fila, col);
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
     	assertEquals(t.getBarco(0, 0).getVida(), 0);
     	
     	
