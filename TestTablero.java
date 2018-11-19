@@ -1,6 +1,8 @@
 import static junit.framework.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Collection;
+
 import org.junit.jupiter.api.Test;
 
 class TestTablero {
@@ -11,6 +13,42 @@ class TestTablero {
 	void test_initTablero() {
 		//Test inicializacion valor vacio
 		assertEquals(m[0][0],3);
+	}
+	@Test
+	void test_arrayListBarcos() {
+		
+		//Lista vacia
+		
+		//Buscar elemento no existente
+		String nombre = "Submarino";
+		
+		for (Barco iter: t.getBarcos()) {
+			if (iter.getNombre().matches(nombre)) {
+				assertFalse(true);
+			}
+		}
+		
+		//Buscar elemento existente
+		Barco b1 = new Barco("Submarino");
+		t.getBarcos().add(b1);
+		for (Barco iter: t.getBarcos()) {
+			if (iter.getNombre().matches(nombre)) {
+				assertTrue(true);
+			}
+		}
+		
+		//Insertar valor erroneo
+		Barco b2 = new Barco("Falso");
+		System.out.println(b2.getNombre());
+		t.getBarcos().add(b2);
+		for (Barco iter: t.getBarcos()) {
+			if (iter.getNombre().matches("Falso")) {
+				assertFalse(true);
+				System.out.println("oops");
+			}
+		}
+		
+
 	}
 	
 	@Test

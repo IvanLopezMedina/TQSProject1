@@ -5,7 +5,7 @@ public class Tablero {
     int MAX_FILA = 9;
     int MAX_COLUMNA = 9;
 	boolean result;
-	Collection<Barco> barcos = new ArrayList();
+	protected Collection<Barco> barcos = new ArrayList();
     
     /**
      * Nomenclatura valores matriz
@@ -20,6 +20,14 @@ public class Tablero {
             	matriz[f][c] = 3;
             }
         }
+    }
+    
+    public Collection<Barco> getBarcos() {
+    	return this.barcos;
+    }
+    
+    public void setBarcos(Barco b) {
+    	this.barcos.add(b);
     }
     
     public int[][] getMatriz(){
