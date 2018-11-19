@@ -97,6 +97,23 @@ class TestTablero {
 		assertEquals(m[0][2], 4);
 		assertEquals(m[0][3], 3);
 		
+		Barco b2 = new Barco("Patrullero");
+		x_inicial = 2;
+		y_inicial = 2;
+		orientacion = 'h';
+			
+		assertEquals(m[2][2], 3);
+		assertEquals(m[3][2], 3);
+		assertEquals(m[4][2], 3);
+		
+		
+		t.setBarco(b2,x_inicial, y_inicial,orientacion);
+		
+		assertEquals(m[2][2], 4);
+		assertEquals(m[2][3], 4);
+		assertEquals(m[2][4], 3);
+		assertEquals(m[2][1], 3);
+		
 	}
 
 	@Test

@@ -30,7 +30,7 @@ public class Jugador {
             int matriz[][] = t.getMatriz();
             if (matriz[x][y] == 4) {
                 barco.restVida(); //restamos la vida del barco
-                if(comprobarHundido(barco)){
+                if(barco.getHundido()){
                     System.out.println("BARCO UNDIDO");
                     matriz[x][y] = 2;
                     ret = 3; //Valor para los test
