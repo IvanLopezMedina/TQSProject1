@@ -1,14 +1,16 @@
-public abstract class Barco {
+public class Barco {
 	protected String nombre;
 	int tamano;
 	int[] posicion = new int[2];
-	int vida = 4;
+	protected int vida;
 	int[] horizontal = new int[4];
 	int[] vertical = new int[4];
 	char orientacion;
 
-    public void Barco(String nombre) {
+    public Barco(String nombre) {
         this.nombre = nombre;
+        setTamano();
+        this.vida = getTamano();
     }
 
     public void setOrientacion(char orientacion){
@@ -23,7 +25,7 @@ public abstract class Barco {
         return this.nombre;
     }
 	public void restVida(){
-	    this.vida -= 1;
+	    this.vida --;
     }
 
 	public int getVida(){
@@ -36,6 +38,24 @@ public abstract class Barco {
 	
 	public int getTamano() {
 		return this.tamano;
+	}
+	
+	public void setTamano() {
+		if (nombre == "Patrullero") {
+			tamano = 2;
+		}
+		
+		if (nombre == "Submarino") {
+			tamano = 3;
+		}
+		
+		if (nombre == "Acorazado") {
+			tamano = 4;
+		}
+		
+		if (nombre == "Portaaviones") {
+			tamano = 5;
+		}
 	}
     public int[] setPosicionBarco(int x, int y){
         posicion[0] = x;

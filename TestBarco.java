@@ -11,15 +11,14 @@ class TestBarco{
 	int[][] m = t.getMatriz();
 
 	@Test
-	void test_InitBarco() {
-        String[] listaNombres = {"Crucero" , "Portavion", "Acorazado"};
-		Barco crucero = new Crucero(listaNombres[0]);
-		Barco portavion = new Portavion(listaNombres[1]);
-		Barco acorazado = new Acorazado(listaNombres[2]);
-
-		assertEquals(crucero.getNombre(),"Crucero");
-        assertEquals(portavion.getNombre(),"Portavion");
-        assertEquals(acorazado.getNombre(),"Crucero");
+	void test_instanciarBarco() {
+        String[] listaNombres = {"Patrullero", "Submarino" , "Acorazado", "Portaaviones"};
+        int[] tamanos = {2,3,4,5};
+        Barco b;
+        for (int i = 0; i < listaNombres.length; i++ ) {
+        	b = new Barco(listaNombres[i]);
+        	assertEquals(b.getTamano(),tamanos[i]);        	
+        }
 
 	}
 }
