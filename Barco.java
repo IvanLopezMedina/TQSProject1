@@ -52,10 +52,6 @@ public class Barco {
 	public int getVida(){
 	    return this.vida;
     }
-
-	public void setNombre(String nombre){
-	    this.nombre = nombre;
-	}
 	
 	public int getTamano() {
 		return this.tamano;
