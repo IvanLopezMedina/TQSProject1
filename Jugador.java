@@ -27,26 +27,40 @@ public class Jugador {
             Barco barco = t.getBarco(x, y); //Me guardo el barco que esta en esa posicion disparada
 
             int ret = 0;
-            int matriz[][] = t.getMatriz();
-            System.out.println("Valor" + matriz[x][y]);
-            if (matriz[x][y] == 4) {
+            System.out.println("Valor" + t.getMatrizValor(x, y));
+            if (t.getMatrizValor(x, y) == 4) {
                 barco.restVida(); //restamos la vida del barco
                 if(barco.getHundido()){
                     System.out.println("BARCO HUNDIDO");
-                    matriz[x][y] = 2;
+                    
+                    int init_x = barco.getPosicionBarco()[0];
+                    int init_y = barco.getPosicionBarco()[1];
+                    char orientacion = barco.getOrientacion();
+                    
+                    if (orientacion == 'h') {
+                    	for (int i = init_y; i < init_y + barco.getTamano(); i++) {
+                        	t.setMatrizValor(init_x, init_y +i, 2);
+                        }
+                    }
+                    if (orientacion == 'v') {
+                    	for (int i = init_x; i < init_x + barco.getTamano(); i++) {
+                        	t.setMatrizValor(init_x +i, init_y, 2);
+                        }
+                    }
+                    t.setMatrizValor(x, y, 2);
                     ret = 3; //Valor para los test
                 }else {
                     System.out.println("Tocado");
-                    matriz[x][y] = 1;
+                    t.setMatrizValor(x, y, 1);
                     ret = 1;
                 }
             } else {
             		
-            		if ( matriz[x][y] != 3 || matriz[x][y] != 4 ) {
+            		if ( t.getMatrizValor(x, y) != 3 || t.getMatrizValor(x, y) != 4 ) {
             			System.out.println("Casella ja seleccionada");
-            			ret = matriz[x][y];
+            			ret = t.getMatrizValor(x, y);
             		}else {
-            			matriz[x][y] = 0;
+            			t.setMatrizValor(x, y, 0);
                         ret = 0;
             		}
                 

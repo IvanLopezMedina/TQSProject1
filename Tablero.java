@@ -43,9 +43,16 @@ public class Tablero {
     	if (barcoValido(b.getNombre())) this.barcos.add(b);
     }
     
+    public int getMatrizValor(int x, int y){
+    	return this.matriz[x][y];
+    }
     public int[][] getMatriz(){
     	return this.matriz;
     }
+    
+   public void setMatrizValor(int x, int y, int valor) {
+	   this.matriz[x][y] = valor;
+   }
 
     public void imprimirTablero(Tablero t){
 		int matriz [][] = t.getMatriz();
