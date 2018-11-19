@@ -56,7 +56,7 @@ public class Jugador {
                 }
             } else {
             		
-            		if ( t.getMatrizValor(x, y) != 3 || t.getMatrizValor(x, y) != 4 ) {
+            		if ( t.getMatrizValor(x, y) != 3) {
             			System.out.println("Casella ja seleccionada");
             			ret = t.getMatrizValor(x, y);
             		}else {

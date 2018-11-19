@@ -58,7 +58,19 @@ public class Tablero {
 		int matriz [][] = t.getMatriz();
 		for(int i=0; i<matriz.length;i++){
 			for(int j=0; j<matriz.length; j++){
-				System.out.print(matriz[i][j] + "\t");
+				if (matriz[i][j] == 3 ||matriz[i][j] == 4) {
+					System.out.print("_" + "\t");
+				}
+				if (matriz[i][j] == 0) {
+					System.out.print("o" + "\t");
+				}
+				if (matriz[i][j] == 1) {
+					System.out.print("t" + "\t");		
+				}
+				if (matriz[i][j] == 2) {
+					System.out.print("x" + "\t");
+				}
+				
 			}
 			System.out.println("\n");
 		}
@@ -84,7 +96,6 @@ public class Tablero {
 						i=1000;
 					}
 				}
-
 			}
 		}
 		return barc;
