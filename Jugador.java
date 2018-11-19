@@ -23,7 +23,7 @@ public class Jugador {
     }
 
     public int disparar(Tablero t, int x, int y){
-        if(x>=0 && x<=9 && y>=0 && y<=9) {
+        if(x>=0 && x<9 && y>=0 && y<9) {
             Barco barco = t.getBarco(x, y); //Me guardo el barco que esta en esa posicion disparada
 
             int ret = 0;
@@ -41,9 +41,16 @@ public class Jugador {
                     ret = 1;
                 }
             } else {
-                System.out.println("Agua");
-                matriz[x][y] = 0;
-                ret = 0;
+            		
+            		if ( matriz[x][y] != 3 || matriz[x][y] != 4 ) {
+            			System.out.println("Casella ja seleccionada");
+            			ret = matriz[x][y];
+            		}else {
+            			matriz[x][y] = 0;
+                        ret = 0;
+            		}
+                
+                
             }
             return ret;//Valor para el test
         }else{

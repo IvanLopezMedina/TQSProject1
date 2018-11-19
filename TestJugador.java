@@ -73,6 +73,8 @@ class TestJugador{
     	//Disparo dos veces en la misma casilla con agua
     	j.entradaUsuario();
     	j1.disparar(t, tec.getFila(), tec.getColumna());
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
     	
     	//Disparo fuera del tablero
     	j.entradaUsuario();
