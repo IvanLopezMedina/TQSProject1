@@ -208,7 +208,13 @@ class TestTablero {
 	@Test
 	void test_colocarBarcoFueraVertical() {
 		
-		
+		Barco b1 = new Barco("Portaaviones");
+		int x_inicial = 8;
+		int y_inicial = 8;
+		char orientacion = 'v';
+	
+		boolean status = t.setBarco(b1,x_inicial, y_inicial,orientacion);
+		assertFalse(status);
 		
 	}
 	
