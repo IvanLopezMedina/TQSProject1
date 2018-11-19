@@ -212,6 +212,32 @@ class TestTablero {
 		
 	}
 	
+	@Test
+	void test_setearBarcoHundidoTablero() {
+		Barco b1 = new Barco("Submarino");
+		Jugador j = new Jugador("Ivan");
+		int x_inicial = 0;
+		int y_inicial = 0;
+		char orientacion = 'h';
+
+		t.setBarco(b1,x_inicial, y_inicial,orientacion);
+		
+		//Disparo al submarino 3 veces, por lo que al tercer disparo debería hundirse y dar estado 2 
+		j.disparar(t, 0, 0);
+		//Estado 1 en casilla 0,0 indica tocado
+		assertEquals(m[0][0], 1);
+		j.disparar(t, 0, 1);
+		//Estado 1 en casilla 0,1 indica tocado
+		assertEquals(m[0][1], 1);
+		//Estado 2 en casilla 0,2 indica HUNDIDO
+		j.disparar(t, 0, 2);
+		//Todas las casillas del barco deberían de pasar del estado 2 al estado 1
+		assertEquals(m[0][2], 2);
+		assertEquals(m[0][1], 2);
+		assertEquals(m[0][0], 2);
+		
+	}
+	
 	
 
 }
