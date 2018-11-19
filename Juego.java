@@ -1,10 +1,23 @@
 import java.util.Scanner;
 
 public class Juego {
-    public static void main(String[] args)
-    {
+	MockTeclado tec;
+	
+	public void setTeclado(MockTeclado t) {
+    	this.tec= t;
+    }
+	
+	public void entradaUsuario(int fila, int col) {
+			tec.filaCol(fila, col);
+			System.out.println(tec.getFila());
+			System.out.println(tec.getColumna());
+	}
+	
+	
+    public static void main(String[] args){
         int x;
         int y;
+        
         System.out.println("Hundir la flota");
         Tablero tab = new Tablero();
         Jugador j1 = new Jugador("Ivan");
