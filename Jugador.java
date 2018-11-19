@@ -27,6 +27,7 @@ public class Jugador {
             Barco barco = t.getBarco(x, y); //Me guardo el barco que esta en esa posicion disparada
 
             int ret = 0;
+            System.out.println("hola");
             System.out.println("Valor" + t.getMatrizValor(x, y));
             if (t.getMatrizValor(x, y) == 4) {
                 barco.restVida(); //restamos la vida del barco
@@ -36,15 +37,17 @@ public class Jugador {
                     int init_x = barco.getPosicionBarco()[0];
                     int init_y = barco.getPosicionBarco()[1];
                     char orientacion = barco.getOrientacion();
-                    
+                    System.out.println(init_x + "Y = " + init_y + orientacion);
                     if (orientacion == 'h') {
                     	for (int i = init_y; i < init_y + barco.getTamano(); i++) {
-                        	t.setMatrizValor(init_x, init_y +i, 2);
+                        	t.setMatrizValor(init_x, i, 2);
                         }
                     }
                     if (orientacion == 'v') {
                     	for (int i = init_x; i < init_x + barco.getTamano(); i++) {
-                        	t.setMatrizValor(init_x +i, init_y, 2);
+                    		System.out.println(init_x+i);
+                        	t.setMatrizValor(i, init_y, 2);
+                        	
                         }
                     }
                     t.setMatrizValor(x, y, 2);
