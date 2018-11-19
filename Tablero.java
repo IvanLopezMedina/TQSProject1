@@ -26,8 +26,21 @@ public class Tablero {
     	return this.barcos;
     }
     
+    public boolean barcoValido(String nombre) {
+    	boolean result;
+    	if (nombre.matches("Patrullero") || 
+			nombre.matches("Submarino") || 
+			nombre.matches("Acorazado") || 
+			nombre.matches("Portaaviones")) {
+    		result = true;
+    	}else {
+    		result = false;
+    	}
+    	return result;
+    }
+    
     public void setBarcos(Barco b) {
-    	this.barcos.add(b);
+    	if (barcoValido(b.getNombre())) this.barcos.add(b);
     }
     
     public int[][] getMatriz(){
@@ -81,7 +94,7 @@ public class Tablero {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
     			int x_init = x;
 				b.setPosicionBarco(x,y); //Barco guarda la posicion en la que ha sido colocado en el tablero
-				barcos.add(b);
+				setBarcos(b);
 				int v = 0;
 				while (x < x_init+b.getTamano()) {
 					b.setPosicionVerticalBarco(v, x);
@@ -96,7 +109,7 @@ public class Tablero {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
     			int y_init = y;
 				b.setPosicionBarco(x,y); //Barco guarda la posicion en la que ha sido colocado en el tablero
-				barcos.add(b);
+				setBarcos(b);
 				int h = 0;
 				while (y < y_init+b.getTamano()) {
 					b.setPosicionHorizontalBarco(h,y);

@@ -14,6 +14,7 @@ class TestJugador{
         assertEquals(j2.getNombre(),"IA");
     }
 
+    @Test
     public void test_disparo(){
         Jugador j1 = new Jugador("Ivan");
         Tablero t = new Tablero();

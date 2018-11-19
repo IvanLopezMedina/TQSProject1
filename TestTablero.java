@@ -29,7 +29,7 @@ class TestTablero {
 		}
 		
 		//Buscar elemento existente
-		Barco b1 = new Barco("Submarino");
+		Barco b1 = new Barco(nombre);
 		t.getBarcos().add(b1);
 		for (Barco iter: t.getBarcos()) {
 			if (iter.getNombre().matches(nombre)) {
@@ -40,11 +40,10 @@ class TestTablero {
 		//Insertar valor erroneo
 		Barco b2 = new Barco("Falso");
 		System.out.println(b2.getNombre());
-		t.getBarcos().add(b2);
+		t.setBarcos(b2);
 		for (Barco iter: t.getBarcos()) {
 			if (iter.getNombre().matches("Falso")) {
 				assertFalse(true);
-				System.out.println("oops");
 			}
 		}
 		
