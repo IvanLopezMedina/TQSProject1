@@ -1,6 +1,7 @@
 import static junit.framework.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.junit.jupiter.api.Test;
@@ -242,7 +243,21 @@ class TestTablero {
 		assertEquals(m[0][0], 2);
 		
 	}
-	
+
+	@Test
+	//loop testing
+	void test_loopGetBarco() {
+		//test 0 loops
+		Tablero tab = new Tablero();
+		assertNull(t.getBarco(5,5));
+
+		//test 1 loop
+		Barco b = new Barco("Patrullero");
+		t.setBarco(b,4,4,'h');
+		assertEquals(t.getBarco(4,4), b);
+		
+
+	}
 	
 
 }
