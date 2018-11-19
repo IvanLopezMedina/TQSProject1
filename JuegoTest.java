@@ -52,4 +52,13 @@ class JuegoTest {
         assertEquals(t.getTotalBarcos(),0);
 	}
 
+    @Test
+    public void test_insercionAleatoria() {
+        Jugador j1 = new Jugador("Ivan");
+        Tablero t = new Tablero();
+        Juego j = new Juego();
+        t.insertarBarcosAleatorios();
+        assertEquals(t.getTotalBarcos(),4);
+    }
+
 }
