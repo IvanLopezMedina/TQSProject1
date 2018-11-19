@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Juego {
-	MockTeclado tec;
+	Teclado tec;
 	
-	public void setTeclado(MockTeclado t) {
+	public void setTeclado(Teclado t) {
     	this.tec= t;
     }
 	

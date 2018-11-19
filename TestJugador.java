@@ -21,20 +21,19 @@ class TestJugador{
         Juego j = new Juego();
         
         //Mock Teclado
-        MockTeclado tec = new MockTeclado();
+        Teclado tec = new MockTecladoDisparos();
         j.setTeclado(tec);
         int fila = 0, col = 0;
         
         
-        //Creo patrullero en la casilla 0 0
+        //Creo patrullero en la casilla 0 0 y lo hundiré 0 0 y 0 1
     	Barco patrullero = new Barco("Patrullero");
     	t.setBarco(patrullero, 0,0, 'h');
-    	
  
     	//Pido entrada usuario, disparo en la 0, 0, está el patrullero y ha de darle y vida = 1
     	j.entradaUsuario();
-    	j1.disparar(t, 0, 0);	
-    	assertEquals(t.getBarco(0, 0).getVida(), 1);
+    	j1.disparar(t, tec.getFila(), tec.getColumna());	
+    	assertEquals(t.getBarco(tec.getFila(), tec.getColumna()).getVida(), 1);
     	
     	//Vuelvo a pedir entrada de usuario. Ahora debería fallar y dar agua y vida = 1
     	j.entradaUsuario();
@@ -44,12 +43,40 @@ class TestJugador{
     	//Vuelvo a pedir entrada de usuario. Ahora debería acertar y hundir el barco
     	j.entradaUsuario();
     	j1.disparar(t, tec.getFila(), tec.getColumna());
-    	assertEquals(t.getBarco(0, 0).getVida(), 0);
+    	assertEquals(t.getBarco(tec.getFila(), tec.getColumna()).getVida(), 0);
     	
+    	System.out.println("new submarino");
     	
+    	//Creo submarino en vertical y lo hundo 
+    	Barco submarino = new Barco("Submarino");
+    	t.setBarco(submarino, 5,5, 'v');
+ 
+    	//Pido entrada usuario, disparo en la 7, 5, está el patrullero y ha de darle y vida = 1
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());	
+    	assertEquals(t.getBarco(tec.getFila(), tec.getColumna()).getVida(), 2);
     	
+    	//Vuelvo a pedir entrada de usuario. Disparo en 7,6
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
+    	assertEquals(t.getBarco(5, 5).getVida(), 1);
     	
+    	//Vuelvo a pedir entrada de usuario. Disparo en 7,5. Ahora debería acertar y hundir el barco
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
+    	assertEquals(t.getBarco(tec.getFila(), tec.getColumna()).getVida(), 0);
     	
+    	//Ahora que el barco está hundido vuelvo a disparar en 7,5. Valor 2 = Hundido
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
+    	assertEquals(t.getBarco(tec.getFila(), tec.getColumna()).getVida(), 0);
+    	
+    	//Disparo dos veces en la misma casilla con agua
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
+    	
+    	//Disparo fuera del tablero
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
     	
     	/*
     	Barco submarino = new Barco("Submarino");
