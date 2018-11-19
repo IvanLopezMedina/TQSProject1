@@ -1,7 +1,7 @@
 public class MockTecladoDisparos implements Teclado{
 	
-	int[] valorFila = {0,1,0,7,6,5,8,8,10};
-	int[] valorCol = {0,0,1,5,5,5,8,8,10};
+	int[] valorFila = {0,1,0,7,6,5,8,8,10,-1};
+	 int[] valorCol = {0,0,1,5,5,5,8,8,10,-1};
 	int i = 0;
 	public int f;
 	public int c;

@@ -21,13 +21,14 @@ public class Juego {
         Jugador j1 = new Jugador("Ivan");
         Barco acorazado = new Barco("Acorazado");
         tab.setBarco(acorazado,0,0,'v');
+        tab.imprimirTablero();
         while(true) {
             Scanner sc = new Scanner(System.in);
             x = j1.pideFila(sc);
             y = j1.pideColumna(sc);
             System.out.println(j1.disparar(tab, x, y));
             //System.out.println(j1.disparoIA(tab));
-            tab.imprimirTablero(tab);
+            tab.imprimirTablero();
         }
         //System.out.println(tab.MatrizSize());
 

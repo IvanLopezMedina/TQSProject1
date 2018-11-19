@@ -54,8 +54,7 @@ public class Tablero {
 	   this.matriz[x][y] = valor;
    }
 
-    public void imprimirTablero(Tablero t){
-		int matriz [][] = t.getMatriz();
+    public void imprimirTablero(){
 		for(int i=0; i<matriz.length;i++){
 			for(int j=0; j<matriz.length; j++){
 				if (matriz[i][j] == 3 ||matriz[i][j] == 4) {
