@@ -18,6 +18,8 @@ class JuegoTest {
         t.setBarco(patrullero,2,2,'h');
         Barco portaaviones = new Barco("Portaaviones");
         t.setBarco(portaaviones,3,3,'h');
+        Barco error = new Barco("Error");
+        t.setBarco(error,4,4,'h');
         
         Teclado tec = new MockTecladoSimularPartida();
         j.setTeclado(tec);  

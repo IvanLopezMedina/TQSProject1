@@ -84,6 +84,27 @@ class TestJugador{
     	j.entradaUsuario();
     	j1.disparar(t, tec.getFila(), tec.getColumna());
     	
+    	//Disparo fuera del tablero
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
+    	
+    	//Disparo negativo 
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
+    	
+    	//Disparo fuera del tablero
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
+    	
+    	//Disparo negativo 
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
+    	
+    	//Disparo fuera del tablero
+    	j.entradaUsuario();
+    	j1.disparar(t, tec.getFila(), tec.getColumna());
+    	
+    	
     }
     
 }

@@ -25,16 +25,13 @@ public class Jugador {
     public int disparar(Tablero t, int x, int y){
         if(x>=0 && x<9 && y>=0 && y<9) {
             Barco barco = t.getBarco(x, y); //Me guardo el barco que esta en esa posicion disparada
-
             int ret = 0;
-            System.out.println("Valor" + t.getMatrizValor(x, y));
             if (t.getMatrizValor(x, y) == 4) {
             	System.out.println("Position X: " + x + " Y : " + y);
                 barco.restVida(); //restamos la vida del barco
                 if(barco.getHundido()){
                     System.out.println("BARCO HUNDIDO" + barco.getNombre());
-                    t.quitarBarco();
-                    
+                    t.quitarBarco();           
                     int init_x = barco.getPosicionBarco()[0];
                     int init_y = barco.getPosicionBarco()[1];
                     char orientacion = barco.getOrientacion();
@@ -48,7 +45,6 @@ public class Jugador {
                     	for (int i = init_x; i < init_x + barco.getTamano(); i++) {
                     		System.out.println(init_x+i);
                         	t.setMatrizValor(i, init_y, 2);
-                        	
                         }
                     }
                     t.setMatrizValor(x, y, 2);
@@ -59,7 +55,6 @@ public class Jugador {
                     ret = 1;
                 }
             } else {
-            		
             		if ( t.getMatrizValor(x, y) != 3) {
             			System.out.println("Casella ja seleccionada");
             			ret = t.getMatrizValor(x, y);
