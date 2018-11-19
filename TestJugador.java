@@ -25,7 +25,7 @@ class TestJugador{
         t.setBarco(acorazado, 1, 0, 'h');
         t.setBarco(portavion, 2, 0, 'h');
 
-        //Test true para los disparos
+        //Test true para los disparos TOCADO
         disparo = j1.disparar(t, 0,0);
         assertEquals(1,disparo);
         disparo = j1.disparar(t, 1,0);
@@ -33,13 +33,21 @@ class TestJugador{
         disparo = j1.disparar(t, 2,0);
         assertEquals(1,disparo);
 
-        //Test false para los disparos
+        //Test false para los disparos AGUA
         disparo = j1.disparar(t, 3,0);
         assertEquals(1,disparo);
         disparo = j1.disparar(t, 4,0);
         assertEquals(1,disparo);
         disparo = j1.disparar(t, 5,0);
         assertEquals(1,disparo);
+
+        //Test true para los disparos FUERA TABLERO
+        disparo = j1.disparar(t, -1,-1);
+        assertEquals(2,disparo);
+        disparo = j1.disparar(t, -4,10);
+        assertEquals(2,disparo);
+        disparo = j1.disparar(t, -3,11);
+        assertEquals(2,disparo);
 
     }
 
