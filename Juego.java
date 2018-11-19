@@ -9,7 +9,7 @@ public class Juego {
         Tablero tab = new Tablero();
         Jugador j1 = new Jugador("Ivan");
         Barco acorazado = new Acorazado("Acorazado");
-        tab.setBarco(acorazado,2,4,'h');
+        tab.setBarco(acorazado,0,0,'v');
         while(true) {
             Scanner sc = new Scanner(System.in);
             x = j1.pideFila(sc);

@@ -24,12 +24,21 @@ public class Jugador {
 
     public int disparar(Tablero t, int x, int y){
         if(x>=0 && x<=9 && y>=0 && y<=9) {
+            Barco barco = t.getBarco(x, y); //Me guardo el barco que esta en esa posicion disparada
+
             int ret = 0;
             int matriz[][] = t.getMatriz();
             if (matriz[x][y] == 4) {
-                System.out.println("Tocado");
-                matriz[x][y] = 1;
-                ret = 1;
+                barco.restVida(); //restamos la vida del barco
+                if(comprobarHundido(barco)){
+                    System.out.println("BARCO UNDIDO");
+                    matriz[x][y] = 2;
+                    ret = 3; //Valor para los test
+                }else {
+                    System.out.println("Tocado");
+                    matriz[x][y] = 1;
+                    ret = 1;
+                }
             } else {
                 System.out.println("Agua");
                 matriz[x][y] = 0;
@@ -39,6 +48,14 @@ public class Jugador {
         }else{
             System.out.println("Fuera de rango");
             return 2; //Valor para el test
+        }
+    }
+    public boolean comprobarHundido(Barco b){
+        int vida = b.getVida();
+        if (vida <= 0){
+            return true;
+        }else{
+            return false;
         }
     }
 
