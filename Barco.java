@@ -6,6 +6,7 @@ public class Barco {
 	protected int[] horizontal = new int[4];
 	protected int[] vertical = new int[4];
 	protected char orientacion;
+	protected boolean hundido;
 
     public Barco(String nombre) {
         this.nombre = nombre;
@@ -13,10 +14,22 @@ public class Barco {
         this.vida = getTamano();
         this.horizontal =  new int[tamano];
         this.vertical =  new int[tamano];
+        this.hundido = false;
     }
 
     public void setOrientacion(char orientacion){
         this.orientacion = orientacion;
+    }
+    
+    public boolean getHundido() {
+    	setHundido();
+    	return this.hundido;
+    }
+    
+    public void setHundido() {
+    	if (vida == 0) {
+    		this.hundido = true;
+    	}
     }
 
     public char getOrientacion(){
@@ -27,7 +40,13 @@ public class Barco {
         return this.nombre;
     }
 	public void restVida(){
-	    this.vida --;
+		if (vida == 0) {
+			
+		}else {
+			this.vida --;
+			getHundido();
+		}
+	    
     }
 
 	public int getVida(){

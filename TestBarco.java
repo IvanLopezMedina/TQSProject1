@@ -22,7 +22,7 @@ class TestBarco{
         }
 
 	}
-	
+	@Test
 	void test_hundirBarco() {
 		Barco b = new Barco("Acorazado");
 		//Barco no hundido
@@ -30,12 +30,14 @@ class TestBarco{
 		assertFalse(b.getHundido());
 		b.restVida();
 		b.restVida();
+		assertEquals(b.getVida(), 1);
 		b.restVida();
 		//Barco hundido
 		assertTrue(b.getHundido());
 		
 		//Seguir restando vida a un barco hundido no debe ser posible
 		
+		b.restVida();
 		b.restVida();
 		assertEquals(b.getVida(), 0);
 		
