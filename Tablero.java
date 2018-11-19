@@ -5,6 +5,7 @@ public class Tablero {
     int MAX_FILA = 9;
     int MAX_COLUMNA = 9;
 	boolean result;
+	Collection<Barco> barcos = new ArrayList();
     
     /**
      * Nomenclatura valores matriz
@@ -34,6 +35,32 @@ public class Tablero {
 			System.out.println("\n");
 		}
 	}
+	public Barco getBarco(int x, int y){
+    	Barco barc = null;
+		for(Barco b: barcos){
+			int[] posicion = b.getPosicionBarco();
+			if(b.getOrientacion() == 'h') {
+				int[] posicionHorizontal = b.getPosicionHorizontalBarco();
+				for(int i=0; i<b.getTamano(); i++){
+					if (posicion[0] == x && posicionHorizontal[i] == y) {
+						barc = b;
+						i=1000;
+					}
+				}
+
+			}else if(b.getOrientacion() == 'v'){
+				int[] posicionVertical = b.getPosicionVerticalBarco();
+				for(int i=0; i<b.getTamano(); i++){
+					if (posicionVertical[i] == x && posicion[1] == y) {
+						barc = b;
+						i=1000;
+					}
+				}
+
+			}
+		}
+		return barc;
+	}
     
     public void setValorCasilla(int x, int y) {
     	matriz[x][y] = 1;
@@ -41,12 +68,18 @@ public class Tablero {
     
     public boolean setBarco(Barco b, int x, int y, char orientacion) {
     	result = true;
+		b.setOrientacion(orientacion);
     	if (orientacion == 'v') {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
     			int x_init = x;
-    			while (x < x_init+b.getTamano()) {
-    				matriz[x][y] = 4;
-    				x++;
+				b.setPosicionBarco(x,y); //Barco guarda la posicion en la que ha sido colocado en el tablero
+				barcos.add(b);
+				int v = 0;
+				while (x < x_init+b.getTamano()) {
+					b.setPosicionVerticalBarco(v, x);
+					matriz[x][y] = 4;
+					x++;
+					v++;
     			}
     		}else result = false;
     	}
@@ -54,9 +87,14 @@ public class Tablero {
     	if (orientacion == 'h') {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
     			int y_init = y;
-    			while (y < y_init+b.getTamano()) {
-    				matriz[x][y] = 4;
+				b.setPosicionBarco(x,y); //Barco guarda la posicion en la que ha sido colocado en el tablero
+				barcos.add(b);
+				int h = 0;
+				while (y < y_init+b.getTamano()) {
+					b.setPosicionHorizontalBarco(h,y);
+					matriz[x][y] = 4;
     				y++;
+    				h++;
     			}
     		} else result = false;
     	}
