@@ -17,9 +17,9 @@ class TestJugador{
     public void test_disparo(){
         Jugador j1 = new Jugador("Ivan");
         Tablero t = new Tablero();
-        Barco crucero = new Crucero("Crucero");
-        Barco acorazado = new Acorazado("Acorazado");
-        Barco portavion = new Portavion("Portavion");
+        Barco crucero = new Barco("Crucero");
+        Barco acorazado = new Barco("Acorazado");
+        Barco portavion = new Barco("Portavion");
         int disparo = 0;
         t.setBarco(crucero, 0,0, 'h');
         t.setBarco(acorazado, 1, 0, 'h');

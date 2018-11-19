@@ -17,7 +17,8 @@ class TestBarco{
         Barco b;
         for (int i = 0; i < listaNombres.length; i++ ) {
         	b = new Barco(listaNombres[i]);
-        	assertEquals(b.getTamano(),tamanos[i]);        	
+        	assertEquals(b.getTamano(),tamanos[i]); 
+        	assertEquals(b.getVida(),tamanos[i]);
         }
 
 	}
