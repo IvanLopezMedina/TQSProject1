@@ -6,6 +6,7 @@ public class Tablero {
     private int[][] matriz;
     int MAX_FILA = 9;
     int MAX_COLUMNA = 9;
+    protected int totalBarcos = 4;
 	boolean result;
 	protected Collection<Barco> barcos = new ArrayList();
     
@@ -25,6 +26,14 @@ public class Tablero {
     
     public Collection<Barco> getBarcos() {
     	return this.barcos;
+    }
+    
+    public int getTotalBarcos(){
+    	return this.totalBarcos;
+    }
+    
+    public void quitarBarco() {
+    	totalBarcos--;
     }
     
     public boolean barcoValido(String nombre) {

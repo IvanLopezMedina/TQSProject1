@@ -33,6 +33,7 @@ public class Jugador {
                 barco.restVida(); //restamos la vida del barco
                 if(barco.getHundido()){
                     System.out.println("BARCO HUNDIDO" + barco.getNombre());
+                    t.quitarBarco();
                     
                     int init_x = barco.getPosicionBarco()[0];
                     int init_y = barco.getPosicionBarco()[1];

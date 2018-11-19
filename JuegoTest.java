@@ -37,5 +37,17 @@ class JuegoTest {
       
         
     }
+	@Test
+	public void test_condicionVictoria() {
+		Jugador j1 = new Jugador("Ivan");
+        Tablero t = new Tablero();
+        Juego j = new Juego();
+        t.insertarBarcosAleatorios();
+        t.quitarBarco();
+        t.quitarBarco();
+        t.quitarBarco();
+        t.quitarBarco();
+        assertEquals(t.getTotalBarcos(),0);
+	}
 
 }
