@@ -1,3 +1,5 @@
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.*;
 
 public class Tablero {
@@ -11,7 +13,6 @@ public class Tablero {
      * Nomenclatura valores matriz
      * 0 = agua; 1 = tocado; 2 = hundido; 
      * 3 = agua_init; 4 = barco_init;
-     * 
      */
     public Tablero() {
     	this.matriz = new int[MAX_FILA][MAX_COLUMNA];
@@ -106,20 +107,18 @@ public class Tablero {
     
     public boolean setBarco(Barco b, int x, int y, char orientacion) {
     	result = true;
-    	System.out.println("X init: " + x);
-    	System.out.println("Y init: " + y);
 		b.setOrientacion(orientacion);
     	if (orientacion == 'v') {
     		if (comprobarPosicionBarco(b.getTamano(), x, y, orientacion)) {
+    			System.out.println(b.getTamano());
     			int x_init = x;
 				b.setPosicionBarco(x,y); //Barco guarda la posicion en la que ha sido colocado en el tablero
 				setBarcos(b);
+				
 				int v = 0;
 				while (x < x_init+b.getTamano()) {
-					System.out.println("Error" + x);
-					System.out.println("Error" + y);
 					b.setPosicionVerticalBarco(v, x);
-					
+					System.out.println("Barco ok");
 					matriz[x][y] = 4;
 					x++;
 					v++;
@@ -132,11 +131,11 @@ public class Tablero {
     			int y_init = y;
 				b.setPosicionBarco(x,y); //Barco guarda la posicion en la que ha sido colocado en el tablero
 				setBarcos(b);
+				
 				int h = 0;
 				while (y < y_init+b.getTamano()) {
-					System.out.println("Error" + x);
-					System.out.println("Error" + y);
 					b.setPosicionHorizontalBarco(h,y);
+					System.out.println("Barco ok");
 					matriz[x][y] = 4;
     				y++;
     				h++;
@@ -151,6 +150,7 @@ public class Tablero {
     		int y_init = y;
     		
     		if (y_init + tamano > 8) {
+    			System.out.println("Error insertando el barco. Te sales");
     			return false;
     		}else {
     			while (y < y_init+tamano) {
@@ -168,6 +168,7 @@ public class Tablero {
     		
     		int x_init = x;
     		if (x_init + tamano > 8) {
+    			System.out.println("Error insertando el barco. Te sales");
     			return false;
     		}else {
     			while (x < x_init+tamano) {
@@ -185,21 +186,37 @@ public class Tablero {
     }
     
     public void insertarBarcosAleatorios() {		
-    	boolean validar = true;
+    	boolean validar = false;
     	char orientacion = 'h';
     	int x = 0,y = 0;
+    	
+    	//Creamos una partida
+
+        /*Barco acorazado = new Barco("Acorazado");
+        setBarco(acorazado,0,0,'v');
+        Barco submarino = new Barco("Submarino");
+        setBarco(submarino,1,1,'v');
+        Barco patrullero = new Barco("Patrullero");
+        setBarco(patrullero,2,2,'h');
+        Barco portaaviones = new Barco("Portaaviones");
+        setBarco(portaaviones,6,6,'h');*/
+        
+       
+        
     	Barco patrullero = new Barco("Patrullero");
     	Barco acorazado = new Barco("Acorazado");
     	Barco submarino = new Barco("Submarino");
     	Barco portaaviones = new Barco("Portaaviones");
     	Collection<Barco> insertadorBarcos = new ArrayList();
+    	
+    	
     	insertadorBarcos.add(patrullero);
     	insertadorBarcos.add(acorazado);
     	insertadorBarcos.add(submarino);
     	insertadorBarcos.add(portaaviones);
     	
     	for (Barco b: insertadorBarcos) {
-    		while (validar) {
+    		while (validar == false) {
         		x = (int) (Math.random() * 8) + 1;
         		y = (int) (Math.random() * 8) + 1;
         		if ((x % 2) == 0) {
@@ -208,8 +225,8 @@ public class Tablero {
         		
         		validar = setBarco(b, x, y, orientacion);
         	}
-    		validar = true;
-    		System.out.println("Barco " + b.getNombre() + "en X : " + x + "Y:" + y);
+    		validar = false;;
+    		System.out.println("Barco " + b.getNombre() + "en posicion " + b.getOrientacion() + " en X : " + x + "Y:" + y);
     	}
 
 	}

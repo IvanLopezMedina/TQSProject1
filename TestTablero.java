@@ -195,12 +195,11 @@ class TestTablero {
 	@Test
 	void test_colocarBarcoFueraHorizontal() {
 		Barco b1 = new Barco("Submarino");
-		int x_inicial = 6;
-		int y_inicial = 0;
+		int x_inicial = 0;
+		int y_inicial = 6;
 		char orientacion = 'h';
 	
 		boolean status = t.setBarco(b1,x_inicial, y_inicial,orientacion);
-		
 		assertFalse(status);
 		
 	}
@@ -209,8 +208,8 @@ class TestTablero {
 	void test_colocarBarcoFueraVertical() {
 		
 		Barco b1 = new Barco("Portaaviones");
-		int x_inicial = 8;
-		int y_inicial = 8;
+		int x_inicial = 6;
+		int y_inicial = 6;
 		char orientacion = 'v';
 	
 		boolean status = t.setBarco(b1,x_inicial, y_inicial,orientacion);
